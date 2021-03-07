@@ -175,6 +175,7 @@ class SlingTableComponent {
     onGlobalSearch(ctx, event) {
         const value = event.target.value;
         ctx.globalSearch = value;
+        ctx.page = 0;
     }
 
     setSortField(sortField) {
@@ -517,6 +518,8 @@ class SlingTableComponent {
     }
 
     filterDisplayDataForSearch() {
+        this.displayData = this.data.slice(0);
+
         if (!this.displayData || this.displayData.length === 0) {
             return;
         }
@@ -577,7 +580,7 @@ class SlingTableComponent {
         return sorted;
     }
 
-    setDisplayData() {
+    filterDisplayDataForPagination() {
         if (this.opts && this.opts.rows) {
             const startIndex = this.page * this.opts.rows;
             
@@ -587,9 +590,9 @@ class SlingTableComponent {
                 endIndex = this.data.length;
             }
 
-            this.displayData = this.data.slice(startIndex, endIndex);
+            this.displayData = this.displayData.slice(startIndex, endIndex);
         } else {
-            this.displayData = this.data;
+            this.displayData = this.displayData;
         }
     }
 
@@ -612,12 +615,9 @@ class SlingTableComponent {
 
         const rows = [];
 
-        // this.sortData();
         this.data = this.sortObject(this.data, this.sortField);
-
-        this.setDisplayData();
-
         this.filterDisplayDataForSearch();
+        this.filterDisplayDataForPagination();
 
         this.displayData.forEach((row, index) => {
             const isOdd = index % 2 !== 0;
