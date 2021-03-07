@@ -1,0 +1,39 @@
+{
+ "name": "slingtable",
+ "version": "0.0.0",
+ "description": "My starter app.",
+ "main": "index.js",
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "build": "webpack --mode development",
+  "buildProd": "webpack --mode production",
+  "devServer": "webpack-dev-server --content-base dist/"
+ },
+ "repository": {
+  "type": "git",
+  "url": "git+https://github.com/.git"
+ },
+ "keywords": [],
+ "author": "",
+ "license": "ISC",
+ "bugs": {
+  "url": "https://github.com//issues"
+ },
+ "homepage": "https://github.com/#readme",
+ "devDependencies": {
+  "@babel/core": "^7.10.4",
+  "@babel/preset-env": "^7.10.4",
+  "babel-loader": "^8.1.0",
+  "copy-webpack-plugin": "^6.0.3",
+  "eslint": "^7.4.0",
+  "eslint-loader": "^4.0.2",
+  "webpack": "^4.43.0",
+  "webpack-cli": "^3.3.12",
+  "webpack-dev-server": "^3.11.0",
+  "slingjs": "^4.1.4",
+  "babel-eslint": "^10.1.0"
+ },
+ "dependencies": {
+  "font-awesome": "^4.7.0"
+ }
+}
