@@ -1,5 +1,7 @@
 # slingtable
 
+![Sling table component](https://github.com/puckowski/slingtable/blob/master/images/Sling%20Table.PNG "Sling table component")
+
 This project was generated with [Sling.js CLI v2.4.1](https://www.npmjs.com/package/slingjscli).
 
 ## Development server
