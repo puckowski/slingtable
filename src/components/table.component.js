@@ -1,4 +1,4 @@
-import { markup, textNode } from "slingjs";
+import { markup, innerText } from "slingjs";
 
 class SlingTableComponent {
 
@@ -202,7 +202,7 @@ class SlingTableComponent {
 
             },
             children: [
-                textNode(header)
+                innerText(header)
             ]
         })).length;
 
@@ -238,7 +238,7 @@ class SlingTableComponent {
                                         attrs: {
                                             style: 'margin-right: 0.5rem;'
                                         }, children: [
-                                            textNode(header)
+                                            innerText(header)
                                         ]
                                     }),
                                     markup('button', {
@@ -255,7 +255,7 @@ class SlingTableComponent {
                                     })
                                 ] : []),
                                 ...(this.opts.sortable === false ? [
-                                    textNode(header)
+                                    innerText(header)
                                 ] : [])
                             ]
                         }))
@@ -286,14 +286,14 @@ class SlingTableComponent {
                                                     style: 'margin-left: 0.5rem;'
                                                 },
                                                 children: [
-                                                    textNode('Export')
+                                                    innerText('Export')
                                                 ]
                                             })
                                         ]
                                     })
                                 ] : []),
                                 ...(this.opts.exportable === false ? [
-                                    textNode('')
+                                    innerText('')
                                 ] : []),
                             ]
                         })
@@ -419,7 +419,7 @@ class SlingTableComponent {
                         attrs: {
                         },
                         children: [
-                            textNode(row[field])
+                            innerText(row[field])
                         ]
                     })] : []),
                     ...(this.isEditingRowAtIndex(index) === true ? [
@@ -488,7 +488,7 @@ class SlingTableComponent {
                                 style: 'margin-left: 0.5rem;'
                             },
                             children: [
-                                textNode('Save')
+                                innerText('Save')
                             ]
                         })
                     ]
@@ -508,7 +508,7 @@ class SlingTableComponent {
                                 style: 'margin-left: 0.5rem;'
                             },
                             children: [
-                                textNode('Edit')
+                                innerText('Edit')
                             ]
                         })
                     ]

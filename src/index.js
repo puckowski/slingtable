@@ -1,4 +1,4 @@
-import { markup, textNode, version, mount } from '../node_modules/slingjs/sling.min';
+import { markup, innerText, version, mount } from '../node_modules/slingjs/sling.min';
 import SlingTableComponent from './components/table.component';
 
 class HelloWorldComponent {
@@ -11,7 +11,7 @@ class HelloWorldComponent {
                 id: 'tagHello'
             },
             children: [
-                textNode('Sling.js v' + version())
+                innerText('Sling.js v' + version())
             ]
         })
     }
