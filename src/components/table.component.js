@@ -136,6 +136,16 @@ class SlingTableComponent {
         this.editingFlags[index] = true;
     }
 
+    onDeleteRow(index) {
+        if (this.opts.deleteCallback !== null && this.opts.deleteCallback !== undefined && typeof this.opts.deleteCallback === 'function') {
+            if (this.opts.deleteCallback(index)) {
+                this.data.splice(index, 1);
+            }
+        } else {
+            this.data.splice(index, 1);
+        }
+    }
+
     endEditRow(index) {
         this.editingFlags[index] = false;
 
@@ -517,6 +527,27 @@ class SlingTableComponent {
                             },
                             children: [
                                 textNode('Edit')
+                            ]
+                        })
+                    ]
+                })] : []),
+                ...(this.opts.enableRowDeletion === true ? [markup('button', {
+                    attrs: {
+                        onclick: this.onDeleteRow.bind(this, index),
+                        style: 'margin-left: 0.5rem;'
+                    },
+                    children: [
+                        markup('i', {
+                            attrs: {
+                                class: 'fa fa-trash-o'
+                            }
+                        }),
+                        markup('span', {
+                            attrs: {
+                                style: 'margin-left: 0.5rem;'
+                            },
+                            children: [
+                                textNode('Delete')
                             ]
                         })
                     ]

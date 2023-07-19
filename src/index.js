@@ -97,6 +97,8 @@ const testTable = new SlingTableComponent(data, fields, headers, 'testTable', {
     tableStyle: 'width: calc(100% - 2rem);table-layout: fixed;margin:1rem;', 
     globalSearch: true, 
     sortable: true, 
+    enableRowDeletion: true,
+    deleteCallback: (index) => { if (index >= 0) return true; },
     cellStyleList: [(row, field) => { 
         if (row[field] === 'Honda') return 'background-color: rgba(255,0,0,0.3);'; 
         else if (row[field] === 'Ford') return 'background-color: rgba(0,0,255,0.3);'; 
